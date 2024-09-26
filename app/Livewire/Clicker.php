@@ -13,6 +13,23 @@ class Clicker extends Component
     
     public function createNewUser()
     {
+        $this->validate([
+            'name' => [
+                'required',
+                'min:2',
+                'max:50',
+            ],
+            'email' => [
+                'required',
+                'email',
+                'unique:users',
+            ],
+            'password' => [
+                'required',
+                'min:5',
+            ],
+        ]);
+        
         // User::create([
         //     'name' => 'john',
         //     'email' => 'john@test.com',
