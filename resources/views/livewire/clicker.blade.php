@@ -10,9 +10,24 @@
     </div>
     <div>
         <form wire:submit="createNewUser" action="">
-            <input wire:model="name" type="text" placeholder="name">
-            <input wire:model="email" type="email" placeholder="email">
-            <input wire:model="password" type="password" placeholder="password">
+            <div>
+                <input wire:model="name" type="text" placeholder="name">
+                @error('name')
+                    <span>{{ $message }}</span>
+                @enderror
+            </div>
+            <div>
+                <input wire:model="email" type="email" placeholder="email">
+                @error('email')
+                    <span>{{ $message }}</span>
+                @enderror
+            </div>
+            <div>
+                <input wire:model="password" type="password" placeholder="password">
+                @error('password')
+                    <span>{{ $message }}</span>
+                @enderror
+            </div>
     
             {{-- <button wire:click.prevent="createNewUser">Create</button> --}}
             <button>Create</button>
